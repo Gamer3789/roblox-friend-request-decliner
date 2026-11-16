@@ -4,7 +4,7 @@ A Windows utility that listens for Roblox friend-request notifications and optio
 
 ## Setup
 
-1. Extract the ZIP into a writable folder.
+1. Extract the ZIP into a writable folder using the green Code button > Download ZIP.
 2. Install [Node.js](https://nodejs.org/) version 22 or newer.
 3. Open **RequestDecliner-v2.exe**. **Start.bat** also opens this app.
 

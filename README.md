@@ -1,6 +1,6 @@
-# Roblox Request Decliner
+# ROBLOX Request Decliner
 AI DISCLOSURE: This project was generated entirely by me using GPT-6 Astra.
-A Windows utility that listens for Roblox friend-request notifications and optionally declines incoming requests.
+A Windows utility that listens for ROBLOX friend-request notifications and optionally declines incoming requests.
 
 ## Setup
 
@@ -17,7 +17,7 @@ On first start, the listener downloads its locked dependencies using npm. Intern
 3. Click **Save and start**. A separate console shows the listener's connection and results.
 4. Keep the listener console open. Close it or press Ctrl+C to stop. Closing the settings app alone does not stop the listener.
 
-**Save cookie** stores the cookie and options in `saved-cookie.dat` beside the executable, encrypted using Windows DPAPI for your Windows account. The app reloads it on the next launch. **Forget cookie** removes the saved file; it does not revoke the Roblox session or stop an already running listener.
+**Save cookie** stores the cookie and options in `saved-cookie.dat` beside the executable, encrypted using Windows DPAPI for your Windows account. The app reloads it on the next launch. **Forget cookie** removes the saved file; it does not revoke the ROBLOX session or stop an already running listener.
 
 Keep the executable and other files together in this folder. The settings app runs on Windows .NET Framework; the listener requires Node.js 22 or newer. RunListener.bat installs the locked SignalR dependency if missing.
 
@@ -25,18 +25,18 @@ The listener reads the decrypted settings from the executable through a private 
 
 ## Behavior
 
-- Listens for FriendshipNotifications / FriendshipRequested through Roblox's internal SignalR WebSocket service.
+- Listens for FriendshipNotifications / FriendshipRequested through ROBLOX's internal SignalR WebSocket service.
 - Declines individual requests; never calls decline-all on a timer.
 - Checks the pending list at connection and reconnection to catch requests missed while offline. In new-only mode, IDs present in the startup snapshot are excluded. Requests that arrive during this initial snapshot may also be excluded; a repeat request from an excluded sender stays excluded until a later check observes the original request gone.
 - Processes requests serially and suppresses duplicate events for five seconds. Rate limits and server errors receive bounded retries. A failed request remains pending and is reported in the console; there is no periodic fallback sweep.
-- The cookie may expire or be rejected by Roblox. Restart with a fresh cookie if needed.
+- The cookie may expire or be rejected by ROBLOX. Restart with a fresh cookie if needed.
 - Detect-only mode sends no decline requests and does not fetch CSRF through logout.
 
 ## First live verification
 
 Use detect-only mode, wait for Connected, and have another account send a friend request. A live-event log confirms the notification format works for your account. Then restart in automatic mode. If that test request remains pending, opt into processing existing requests or remove it manually before sending another.
 
-Connected confirms the WebSocket handshake, not delivery of friend-request events. This uses an internal Roblox service that can change. If no event arrives, do not assume requests are being declined. End-to-end live authentication and notification delivery have not been confirmed. Offline tests do not establish compatibility with every Roblox account.
+Connected confirms the WebSocket handshake, not delivery of friend-request events. This uses an internal ROBLOX service that can change. If no event arrives, do not assume requests are being declined. End-to-end live authentication and notification delivery have not been confirmed. Offline tests do not establish compatibility with every ROBLOX account.
 
 API duration in the log measures the decline call after receipt, not the time from the sender clicking Send.
 

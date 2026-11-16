@@ -1,0 +1,11 @@
+# Private local authentication/settings (case variants included)
+[sS][aA][vV][eE][dD]-[cC][oO][oO][kK][iI][eE].[dD][aA][tT]
+*.dat
+.env
+.env.*
+
+# Installed dependencies and local diagnostics
+node_modules/
+*.log
+npm-debug.log*
+.vs/
